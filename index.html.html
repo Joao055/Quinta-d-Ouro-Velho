@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quinta d'Ouro Velho</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+main p {
+  text-align: justify;
+}
+  header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .header-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(139, 111, 71, 0.85);
+    padding: 1em;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1em;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .nav-icons img {
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+  }
+
+.logo-container {
+  position: absolute;
+  top: 30px; /* ajustar conforme a altura da barra */
+  left: 2px;
+  z-index: 4;
+}
+
+.logo-container img {
+  max-width: 350px;
+  height: auto;
+}
+</style>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; background-color: #f8f6f2; color: #333; line-height: 1.6; }
+    
+    header {
+      position: relative;
+      height: 100vh; /* altura total do ecrã */
+      overflow: hidden;
+    }
+    #bg-video {
+      position: absolute;
+      top: 0; left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .header-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4em;
+      margin-bottom: 0.2em;
+    }
+    .header-content p {
+      font-size: 1.5em;
+      font-style: italic;
+    }
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(139, 111, 71, 0.8); /* semitransparente */
+  padding: 1em;
+  text-align: center;
+  z-index: 2;
+}
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main { max-width: 1100px; margin: auto; padding: 2em; }
+    section { margin-bottom: 3em; display: none; }
+    h2 { font-family: 'Playfair Display', serif; color: #8b6f47; margin-bottom: 0.5em; }
+    .galeria { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 1em; }
+    .galeria img { width: 100%; max-width: 250px; height: auto; border-radius: 10px; }
+
+    footer { background-color: #333; color: white; text-align: center; padding: 2em 1em; margin-top: 2em; }
+  </style>
+
+<style>
+@media (max-width: 768px) {
+  /* Header */
+  .header-content h1 {
+    font-size: 2em;
+  }
+
+  .header-content p {
+    font-size: 1em;
+  }
+
+  /* Logotipo */
+  .logo-container img {
+    max-width: 180px;
+  }
+
+  /* Navegação e layout */
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(139, 111, 71, 0.95);
+    width: 100%;
+    padding: 1em 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav-icons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Flex containers */
+  .flex-container {
+    flex-direction: column !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .flex-container img {
+    margin-top: 1em;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Justificar texto também em mobile */
+  main p {
+    text-align: justify;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  section h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
+</style>
+
+</head>
+<body>
+
+  <header>
+  <video autoplay muted loop id="bg-video">
+  <source src="videosdouro.mp4.mp4" type="video/mp4">
+  O seu navegador não suporta vídeo HTML5.
+</video>
+    <div class="header-content">
+      <h1>Quinta d'Ouro Velho</h1>
+      <p>Excelência em cada taça, tradição em cada safra</p>
+    </div>
+  </header>
+
+  <nav>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      &#9776;
+    </div>
+
+    <div class="nav-links">
+    <a href="#" onclick="mostrarSecao('sobre')">Sobre</a>
+<a href="#" onclick="mostrarSecao('vinhos')">Vinhos</a>
+<a href="#" onclick="mostrarSecao('alojamento')">Alojamento</a>
+<a href="#" onclick="mostrarSecao('missao')">Missão</a>
+<a href="#" onclick="mostrarSecao('visao')">Visão</a>
+<a href="#" onclick="mostrarSecao('valores')">Valores</a>
+<a href="#" onclick="mostrarSecao('recrutamento')">Recrutamento</a>
+<a href="#" onclick="mostrarSecao('contactos')">Contactos</a>
+
+ </div>
+  <div class="nav-icons">
+    <img src="icons8-search-50.png" alt="Pesquisar">
+    <img src="icons8-account-50.png" alt="Conta">
+    <img src="bag.png" alt="Carrinho">
+  </div>
+</nav>
+<div class="logo-container">
+  <img src="DouroPortugal.png" alt="Logotipo Douro - Portugal">
+</div>
+
+
+  <main>
+<section id='sobre'>
+  <h2>Sobre a Quinta</h2>
+
+  <div class="flex-container" style="display: flex; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        Localizada no Peso da Régua, no coração do Alto Douro Vinhateiro, a Quinta d’Ouro Velho é muito mais do que uma propriedade agrícola – é um testemunho vivo da tradição vitivinícola da região. Com raízes históricas profundas, a Quinta preserva os métodos de cultivo e vinificação que passaram de geração em geração, com uma dedicação inabalável à excelência e à autenticidade.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="foto sobre 1.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; flex-direction: row-reverse; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        Para além da sua atividade vinícola, a Quinta d’Ouro Velho é um destino de enoturismo reconhecido. Oferecemos experiências imersivas no mundo do vinho: visitas guiadas às vinhas e adegas, provas comentadas, gastronomia regional e alojamento em unidades restauradas com charme e conforto. Cada visita é uma celebração da cultura e da paisagem duriense.
+      </p>
+    </div>
+    <div style="flex: 1; padding-right: 2em;">
+      <img src="foto sobre 2.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+      <p>
+        Com um olhar sempre voltado para o futuro, a Quinta aposta na sustentabilidade ambiental, inovação tecnológica e valorização humana como pilares do seu crescimento. Somos uma ponte entre o passado e o futuro, entre a tradição e a modernidade, elevando o nome do Douro dentro e fora de Portugal.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="foto sobre 3.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+</section>
+<section id='vinhos'>
+  <h2>Vinhos</h2>
+
+  <div class="flex-container" style="display: flex; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        Cada garrafa da Quinta d’Ouro Velho conta uma história do Douro feita de xisto, sol e tradição. Os nossos vinhos tintos destacam-se pela sua estrutura firme, notas de frutos silvestres e especiarias, com taninos elegantes que se refinam com o tempo. São vinhos profundos, ideais para momentos intensos e memoráveis.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="VinhoTinto.png" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; flex-direction: row-reverse; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        Já os vinhos brancos revelam a frescura da altitude e a pureza do terroir duriense. Com aromas cítricos e minerais, são vinhos equilibrados e vibrantes perfeitos para harmonizar com pratos leves ou simplesmente para refrescar os sentidos num final de tarde com vista para as vinhas.
+      </p>
+    </div>
+    <div style="flex: 1; padding-right: 2em;">
+      <img src="VinhoBranco.png" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+      <p>
+        O nosso ex-líbris são, sem dúvida, os vinhos do Porto. Nobres e complexos, são resultado de um cuidado artesanal aliado à paixão duradoura por este emblema nacional. Desde a pisa a pé em lagar até ao envelhecimento em tonéis, cada etapa é tratada com rigor e respeito pela herança do Douro.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="VinhoPorto.png" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+</section>
+
+<section id='alojamento'>
+  <h2>Alojamento</h2>
+
+  <div class="flex-container" style="display: flex; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        O nosso alojamento de charme oferece conforto e tranquilidade em casas de pedra cuidadosamente restauradas, com vista privilegiada para os vinhedos centenários e para a serenidade do rio Douro. Cada espaço foi pensado para proporcionar uma experiência autêntica e acolhedora, onde o rústico se alia ao requinte.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="foto alojamento 1.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; flex-direction: row-reverse; align-items: center; margin-bottom: 2em;">
+    <div style="flex: 1;">
+      <p>
+        Os quartos e suítes estão equipados com todas as comodidades modernas, mas mantêm elementos arquitetónicos tradicionais como paredes em granito, tetos em madeira e mobiliário artesanal, evocando a história e a alma da região. Aqui, cada despertar é embalado pelo silêncio do campo e pela beleza natural dos socalcos durienses.
+      </p>
+    </div>
+    <div style="flex: 1; padding-right: 2em;">
+      <img src="foto alojamento 2.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+
+  <div class="flex-container" style="display: flex; align-items: center;">
+    <div style="flex: 1;">
+      <p>
+        Para além do alojamento, os hóspedes podem usufruir de pequenos-almoços regionais com produtos locais, piscina com vista panorâmica, lareira nas noites frias e acesso direto às vinhas e trilhos. É o destino ideal para quem procura escapar ao ritmo acelerado da cidade e reconectar-se com a natureza, a cultura e o vinho.
+      </p>
+    </div>
+    <div style="flex: 1; padding-left: 2em;">
+      <img src="foto alojamento 3.jpg" alt="Imagem relacionada" style="width: 100%; border-radius: 10px;">
+    </div>
+  </div>
+</section>
+
+
+<section id='missao'>
+  <h2>Missão</h2>
+  <p>
+    A missão da Quinta d’Ouro Velho é profundamente enraizada no respeito pelas origens e na ambição de um futuro sustentável. Produzimos vinhos de elevada qualidade, valorizando os métodos tradicionais do Douro, como a pisa a pé em lagares e o envelhecimento cuidadoso em tonéis de carvalho. Esta herança é conjugada com inovação tecnológica e boas práticas agrícolas que nos permitem preservar o ecossistema e reduzir o impacto ambiental da produção.
+  </p>
+  <p>
+    Mais do que produzir vinhos, queremos criar ligações autênticas entre as pessoas e o território. Por isso, apostamos em experiências de enoturismo que celebram o património, a cultura e a hospitalidade duriense. Acreditamos que cada visita à nossa Quinta deve ser uma imersão nos sentidos, uma oportunidade para aprender, partilhar e criar memórias inesquecíveis.
+  </p>
+  <p>
+    Paralelamente, a nossa missão estende-se à valorização dos recursos humanos e ao desenvolvimento social da região. Investimos na formação contínua da nossa equipa e privilegiamos parcerias com produtores locais, reforçando a identidade da comunidade duriense e promovendo a coesão económica e cultural.
+  </p>
+</section>
+
+<section id='visao'>
+  <h2>Visão</h2>
+  <p>
+    A visão da Quinta d’Ouro Velho é tornar-se uma referência de excelência no panorama vitivinícola e enoturístico nacional e internacional. Queremos ser reconhecidos não apenas pela qualidade dos nossos vinhos, mas também pelo nosso compromisso com a sustentabilidade, a autenticidade e a inovação responsável.
+  </p>
+  <p>
+    Ambicionamos expandir o alcance da marca além-fronteiras, promovendo o nome do Douro e da sua cultura em novos mercados e palcos mundiais. Procuramos conquistar o coração de apreciadores de vinho em todo o mundo, mantendo sempre o compromisso com a origem e com a integridade de cada garrafa produzida.
+  </p>
+  <p>
+    Além disso, pretendemos reforçar a Quinta como um destino de eleição no enoturismo português. Queremos que cada hóspede que nos visita encontre aqui um refúgio de beleza natural, um espaço de aprendizagem sobre o vinho e uma vivência autêntica do espírito duriense onde tradição, conforto e paisagem se fundem num só lugar.
+  </p>
+</section>
+
+<section id='valores'>
+  <h2>Valores</h2>
+  <p>
+    A Quinta d’Ouro Velho assenta a sua identidade num conjunto de valores fundamentais que norteiam todas as decisões e ações da empresa:
+  </p>
+  <ul style="padding-left: 1.5em; list-style-type: disc;">
+    <li>Qualidade e Excelência: Desde a escolha das castas à vinificação, garantimos padrões rigorosos para que cada vinho represente o melhor do Douro.</li>
+    <li>Sustentabilidade: Apostamos em práticas agrícolas amigas do ambiente e numa gestão responsável dos recursos naturais.</li>
+    <li>Tradição com Inovação: Valorizamos o saber ancestral do vinho, integrando novas tecnologias de forma equilibrada e consciente.</li>
+    <li>Autenticidade e Cultura: Celebramos a alma duriense em cada detalhe – desde a arquitetura das casas até à hospitalidade que oferecemos.</li>
+    <li>Desenvolvimento Local: Contribuímos ativamente para o crescimento económico e social da região, apoiando a comunidade e o comércio local.</li>
+    <li>Responsabilidade Social: Promovemos condições de trabalho justas, formação contínua e um ambiente colaborativo.</li>
+    <li>Respeito pelo Património: Honramos o legado vinícola do Douro, cuidando do que recebemos para garantir que futuras gerações também o possam viver.</li>
+  </ul>
+</section>
+
+<section id='recrutamento'>
+  <h2>Recrutamento</h2>
+  <p>
+    A Quinta d’Ouro Velho acredita que os melhores vinhos nascem das melhores pessoas. Procuramos profissionais apaixonados pelo setor vitivinícola, que partilhem os nossos valores de qualidade, tradição, sustentabilidade e inovação.
+    <br><br>
+    Neste momento, está aberto o processo de recrutamento para a função de <strong>Enólogo(a)</strong>.
+  </p>
+
+  <h3>Perfil do Candidato</h3>
+  <ul style="padding-left: 1.2em;">
+    <li>Licenciatura em Enologia, Viticultura, Ciência Alimentar ou áreas afins;</li>
+    <li>Experiência mínima de 1 a 2 anos em adega ou ambiente similar;</li>
+    <li>Conhecimentos técnicos de laboratório e análise de vinhos;</li>
+    <li>Capacidade de trabalho em equipa, atenção ao detalhe e paixão pelo vinho;</li>
+    <li>Disponibilidade para horários flexíveis, especialmente na época de vindimas.</li>
+  </ul>
+
+  <h3>Oferecemos</h3>
+  <ul style="padding-left: 1.2em;">
+    <li>Remuneração atrativa com progressão salarial anual;</li>
+    <li>Prémios de desempenho até 15% do salário anual anterior;</li>
+    <li>13.º e 14.º mês pagos em duodécimos;</li>
+    <li>Subsídio de alimentação e plano de saúde;</li>
+    <li>40 horas de formação anual em horário laboral;</li>
+    <li>Ambiente de trabalho no coração do Douro com alojamento possível em época alta.</li>
+  </ul>
+
+  <h3>Etapas do Processo de Seleção</h3>
+  <ol style="padding-left: 1.2em;">
+    <li>Análise Curricular e Carta de Motivação;</li>
+    <li>Prova Técnica com questões de enologia e estudo de caso;</li>
+    <li>Avaliação Técnico-Comportamental com simulações práticas;</li>
+    <li>Entrevista final com Diretores de Produção e Recursos Humanos.</li>
+  </ol>
+
+  <p>
+  As candidaturas devem ser submetidas <strong>exclusivamente através do site</strong> ou plataformas especializadas até ao final do prazo indicado no anúncio. A Quinta d’Ouro Velho garante a igualdade de oportunidades e a transparência de todo o processo.
+</p>
+
+<!-- Botão com espaçamento inferior ao texto -->
+<div style="margin-top: 2em;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSct6y2QTu1CC7iLog-F8nzxg1vse7rfMu9mPJ89YPPscnJYzw/viewform?usp=header"
+     target="_blank"
+     style="background-color: #8b6f47; color: white; padding: 0.75em 1.5em; text-decoration: none;
+            border-radius: 8px; font-weight: bold; display: inline-block;">
+    Enviar Candidatura
+  </a>
+</div>
+</section>
+
+<section id='contactos'>
+  <h2>Contactos</h2>
+
+  <p>Morada: Quinta d´Ouro Velho,União das freguesias de Poiares e Canelas, Peso da Régua</p>
+  <p>Telefone: +351 259 321 456</p>
+  <p>Email: geral@quintadourovelho.pt</p>
+  <p>Horário: Segunda a Sábado, das 09h às 19h</p>
+
+  <p>
+    Siga-nos nas redes sociais:
+    <br>
+    <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+    <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+  </p>
+
+  <div style="margin-top: 2em;">
+    <<div style="margin-top: 2em;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.1533934460535!2d-7.758355035791937!3d41.153004086003605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3b52eee79ebe65%3A0x4355ec9689f9ad6f!2sUni%C3%A3o%20das%20freguesias%20de%20Poiares%20e%20Canelas!5e0!3m2!1spt-PT!2spt!4v1747324096737!5m2!1spt-PT!2spt"
+    width="100%" height="350" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Quinta d'Ouro Velho - Sociedade Agrícola, Lda. Todos os direitos reservados.</p>
+  </footer>
+
+<script>
+  function mostrarSecao(id) {
+    const secoes = document.querySelectorAll("main > section");
+    secoes.forEach(secao => secao.style.display = "none");
+
+    const secaoSelecionada = document.getElementById(id);
+    secaoSelecionada.style.display = "block";
+
+    // Scroll suave até à secção visível
+    secaoSelecionada.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  window.onload = function() {
+    mostrarSecao('sobre');
+
+    // Ativar eventos dos ícones
+    const iconePesquisa = document.querySelector("img[alt='Pesquisar']");
+    const iconeConta = document.querySelector("img[alt='Conta']");
+    const iconeCarrinho = document.querySelector("img[alt='Carrinho']");
+
+    iconePesquisa.addEventListener("click", function () {
+      alert("Funcionalidade de pesquisa em desenvolvimento.");
+    });
+
+    iconeConta.addEventListener("click", function () {
+      alert("Área de login em desenvolvimento.");
+    });
+
+    iconeCarrinho.addEventListener("click", function () {
+      alert("Carrinho de compras em desenvolvimento.");
+    });
+  };
+</script>
+
+
+
+<script>
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
